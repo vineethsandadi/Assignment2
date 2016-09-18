@@ -1,17 +1,17 @@
-## Put comments here that give an overall description of what your
+## Put comments here that give an overall description of what bour
 ## functions do
 
 ## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
-  z <- NULL
-  setmat <- function(y) {
-  x <<- y
-  z <<- NULL
+  a <- NULL
+  setmat <- function(b) {
+  x <<- b
+  a <<- NULL
   }
   getmat <- function() x
-  setinv <- function(mat_inv) z <<- mat_inv
-  getinv <- function() z
+  setinv <- function(mat_inv) a <<- mat_inv
+  getinv <- function() a
   list(setmat = setmat, getmat = getmat,
   setinv = setinv,
   getinv = getinv)
@@ -22,13 +22,13 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
-  z <- x$getinv()
-  if(!is.null(z)) {
+  a <- x$getinv()
+  if(!is.null(a)) {
    message("Fetching the inverse from cached data")
-   return(z)
+   return(a)
    }
         
-          z <- solve(x$getmat())
-          x$setinv(z)
-          z
+          a <- solve(x$getmat())
+          x$setinv(a)
+          a
 }
